@@ -55,13 +55,18 @@ public class Main {
                         break;
 
                     case 2:
+                        // Запрашиваем у пользователя ввод символа (цифры от '0' до '9').
                         System.out.print("Введите символ (цифру от '0' до '9'): ");
-                        input = scanner.nextLine();
+                        input = scanner.nextLine(); // Читаем ввод пользователя.
+
+                        // Проверяем, что введен ровно один символ и он является цифрой.
                         if (input.length() == 1 && Character.isDigit(input.charAt(0))) {
-                            char xChar = input.charAt(0);
-                            int num = charToNum(xChar);
+                            char xChar = input.charAt(0); // Извлекаем первый (и единственный) символ из ввода.
+                            int num = charToNum(xChar); // Преобразуем символ в его числовое значение с помощью функции charToNum.
+                            // Выводим числовое значение символа на экран.
                             System.out.println("Числовое значение символа '" + xChar + "': " + num);
                         } else {
+                            // Если ввод некорректен, выводим сообщение об ошибке.
                             System.out.println("Ошибка: введенный символ не является цифрой или введено несколько символов.");
                         }
                         break;
