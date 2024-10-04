@@ -170,7 +170,7 @@ public class Main {
                         break;
 
                     case 16:
-                        int size16 = getIntegerInput(scanner, "Введите размер массива: ");
+                        int size16 = getPositiveIntegerInput(scanner, "Введите размер массива: ");
                         int[] arr = new int[size16];
                         for (int i = 0; i < size16; i++) {
                             arr[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
@@ -185,12 +185,9 @@ public class Main {
                         }
                         break;
 
-                    default:
-                        System.out.println("Некорректный номер задания. Попробуйте снова.");
-                        break;
 
                     case 17:
-                        int size17 = getIntegerInput(scanner, "Введите размер массива: ");
+                        int size17 = getPositiveIntegerInput(scanner, "Введите размер массива: ");
                         int[] arr17 = new int[size17];
                         for (int i = 0; i < size17; i++) {
                             arr17[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
@@ -201,13 +198,13 @@ public class Main {
                         break;
 
                     case 18:
-                        int sizeArr = getIntegerInput(scanner, "Введите размер первого массива: ");
+                        int sizeArr = getPositiveIntegerInput(scanner, "Введите размер первого массива: ");
                         int[] arr18 = new int[sizeArr];
                         for (int i = 0; i < sizeArr; i++) {
                             arr18[i] = getIntegerInput(scanner, "Введите элемент первого массива " + (i + 1) + ": ");
                         }
 
-                        int sizeIns = getIntegerInput(scanner, "Введите размер массива для вставки: ");
+                        int sizeIns = getPositiveIntegerInput(scanner, "Введите размер массива для вставки: ");
                         int[] ins = new int[sizeIns];
                         for (int i = 0; i < sizeIns; i++) {
                             ins[i] = getIntegerInput(scanner, "Введите элемент массива для вставки " + (i + 1) + ": ");
@@ -231,7 +228,7 @@ public class Main {
                         break;
 
                     case 19:
-                        int size19 = getIntegerInput(scanner, "Введите размер массива: ");
+                        int size19 = getPositiveIntegerInput(scanner, "Введите размер массива: ");
                         int[] arr19 = new int[size19];
                         for (int i = 0; i < size19; i++) {
                             arr19[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
@@ -249,7 +246,7 @@ public class Main {
                         break;
 
                     case 20:
-                        int size20 = getIntegerInput(scanner, "Введите размер массива: ");
+                        int size20 = getPositiveIntegerInput(scanner, "Введите размер массива: ");
                         int[] arr20 = new int[size20];
                         for (int i = 0; i < size20; i++) {
                             arr20[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
@@ -271,6 +268,9 @@ public class Main {
                         }
                         break;
 
+                    default:
+                        System.out.println("Некорректный номер задания. Попробуйте снова.");
+                        break;
 
 
                 }
@@ -292,6 +292,26 @@ public class Main {
                 break; // Прерываем цикл, если ввод корректный
             } else {
                 System.out.println("Некорректный ввод. Пожалуйста, введите целое число.");
+                scanner.nextLine(); // Очищаем буфер ввода
+            }
+        }
+        return number;
+    }
+
+    public static int getPositiveIntegerInput(Scanner scanner, String prompt) {
+        int number;
+        while (true) {
+            System.out.print(prompt);
+            if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                scanner.nextLine(); // Очищаем буфер после ввода числа
+                if (number > 0) {
+                    break; // Прерываем цикл, если число положительное
+                } else {
+                    System.out.println("Некорректный ввод. Размер массива должен быть положительным числом.");
+                }
+            } else {
+                System.out.println("Некорректный ввод. Пожалуйста, введите целое положительное число.");
                 scanner.nextLine(); // Очищаем буфер ввода
             }
         }
