@@ -4,7 +4,7 @@ public class Main {
     private static final String EXIT_COMMAND = "exit";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        Main m = new Main();
         while (true) {
             System.out.println("\nВыберите задание или введите '" + EXIT_COMMAND + "' для выхода:");
             System.out.println("1. Получение дробной части числа");
@@ -51,7 +51,7 @@ public class Main {
                                 scanner.nextLine(); // Очищаем буфер ввода
                             }
                         }
-                        System.out.println("Дробная часть числа: " + fraction(x));
+                        System.out.println("Дробная часть числа: " + m.fraction(x));
                         break;
 
                     case 2:
@@ -62,7 +62,7 @@ public class Main {
                         // Проверяем, что введен ровно один символ и он является цифрой.
                         if (input.length() == 1 && Character.isDigit(input.charAt(0))) {
                             char xChar = input.charAt(0); // Извлекаем первый (и единственный) символ из ввода.
-                            int num = charToNum(xChar); // Преобразуем символ в его числовое значение с помощью функции charToNum.
+                            int num = m.charToNum(xChar); // Преобразуем символ в его числовое значение с помощью функции charToNum.
                             // Выводим числовое значение символа на экран.
                             System.out.println("Числовое значение символа '" + xChar + "': " + num);
                         } else {
@@ -73,7 +73,7 @@ public class Main {
 
                     case 3:
                         int number = getIntegerInput(scanner, "Введите целое число для проверки, является ли оно двузначным:");
-                        if (is2Digits(number)) {
+                        if (m.is2Digits(number)) {
                             System.out.println("Число " + number + " является двузначным.");
                         } else {
                             System.out.println("Число " + number + " не является двузначным.");
@@ -85,7 +85,7 @@ public class Main {
                         int b = getIntegerInput(scanner, "Введите правую границу диапазона:");
                         int num = getIntegerInput(scanner, "Введите число для проверки:");
 
-                        if (isInRange(a, b, num)) {
+                        if (m.isInRange(a, b, num)) {
                             System.out.println("Число " + num + " входит в диапазон [" + a + ", " + b + "].");
                         } else {
                             System.out.println("Число " + num + " не входит в диапазон [" + a + ", " + b + "].");
@@ -97,7 +97,7 @@ public class Main {
                         int second = getIntegerInput(scanner, "Введите второе число:");
                         int third = getIntegerInput(scanner, "Введите третье число:");
 
-                        if (isEqual(first, second, third)) {
+                        if (m.isEqual(first, second, third)) {
                             System.out.println("Все три числа равны.");
                         } else {
                             System.out.println("Числа не равны.");
@@ -106,12 +106,12 @@ public class Main {
 
                     case 6:
                         int number6 = getIntegerInput(scanner, "Введите целое число для вычисления модуля:");
-                        System.out.println("Модуль числа " + number6 + " равен " + absoluteValue(number6));
+                        System.out.println("Модуль числа " + number6 + " равен " + m.absoluteValue(number6));
                         break;
 
                     case 7:
                         int number7 = getIntegerInput(scanner, "Введите целое число для проверки делимости на 3 или 5:");
-                        if (is35(number7)) {
+                        if (m.is35(number7)) {
                             System.out.println("Число " + number7 + " делится нацело на 3 или 5.");
                         } else {
                             System.out.println("Число " + number7 + " не делится нацело на 3 или 5, или делится на оба.");
@@ -122,51 +122,51 @@ public class Main {
                         int num8_1 = getIntegerInput(scanner, "Введите первое целое число: ");
                         int num8_2 = getIntegerInput(scanner, "Введите второе целое число: ");
                         int num8_3 = getIntegerInput(scanner, "Введите третье целое число: ");
-                        int maximum = max3(num8_1, num8_2, num8_3);
+                        int maximum = m.max3(num8_1, num8_2, num8_3);
                         System.out.println("Максимальное из трех чисел: " + maximum);
                         break;
 
                     case 9:
                         int num9_1 = getIntegerInput(scanner, "Введите первое целое число: ");
                         int num9_2 = getIntegerInput(scanner, "Введите второе целое число: ");
-                        int result = sum2(num9_1, num9_2);
+                        int result = m.sum2(num9_1, num9_2);
                         System.out.println("Результат: " + result);
                         break;
 
                     case 10:
                         int dayNumber = getIntegerInput(scanner, "Введите число, обозначающее день недели (1-7): ");
-                        String dayOfWeek = day(dayNumber);
+                        String dayOfWeek = m.day(dayNumber);
                         System.out.println("День недели: " + dayOfWeek);
                         break;
 
                     case 11:
                         int maxNum = getIntegerInput(scanner, "Введите целое число: ");
-                        String numbers = listNums(maxNum);
+                        String numbers = m.listNums(maxNum);
                         System.out.println("Числа от 0 до " + maxNum + ": " + numbers);
                         break;
 
                     case 12:
                         int Num12 = getIntegerInput(scanner, "Введите целое число: ");
-                        String evenNumbers = chet(Num12);
+                        String evenNumbers = m.chet(Num12);
                         System.out.println("Четные числа от 0 до " + Num12 + ": " + evenNumbers);
                         break;
 
                     case 13:
                         System.out.print("Введите число типа long: ");
                         long longNumber = scanner.nextLong(); // Вводим число типа long
-                        int length = numLen(longNumber);
+                        int length = m.numLen(longNumber);
                         System.out.println("Количество цифр в числе " + longNumber + ": " + length);
                         scanner.nextLine(); // Очищаем буфер ввода
                         break;
 
                     case 14:
                         int size = getIntegerInput(scanner, "Введите целое число для размера квадрата: ");
-                        square(size);
+                        m.square(size);
                         break;
 
                     case 15:
                         int height = getIntegerInput(scanner, "Введите целое число для высоты треугольника: ");
-                        rightTriangle(height);
+                        m.rightTriangle(height);
                         break;
 
                     case 16:
@@ -177,7 +177,7 @@ public class Main {
                         }
 
                         int x16 = getIntegerInput(scanner, "Введите число для поиска: ");
-                        int index = findFirst(arr, x16);
+                        int index = m.findFirst(arr, x16);
                         if (index != -1) {
                             System.out.println("Первое вхождение числа " + x16 + " находится по индексу: " + index);
                         } else {
@@ -193,7 +193,7 @@ public class Main {
                             arr17[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
                         }
 
-                        int maxValue = maxAbs(arr17);
+                        int maxValue = m.maxAbs(arr17);
                         System.out.println("Максимальное по модулю значение в массиве: " + maxValue);
                         break;
 
@@ -215,7 +215,7 @@ public class Main {
                         if (pos < 0 || pos > arr18.length) {
                             System.out.println("Некорректная позиция для вставки.");
                         } else {
-                            int[] result18 = add(arr18, ins, pos);
+                            int[] result18 = m.add(arr18, ins, pos);
                             System.out.print("Результирующий массив: [");
                             for (int i = 0; i < result18.length; i++) {
                                 System.out.print(result18[i]);
@@ -233,7 +233,7 @@ public class Main {
                         for (int i = 0; i < size19; i++) {
                             arr19[i] = getIntegerInput(scanner, "Введите элемент массива " + (i + 1) + ": ");
                         }
-                        int[] reversedArr = reverseBack(arr19);
+                        int[] reversedArr = m.reverseBack(arr19);
 
                         System.out.print("Реверсированный массив: [");
                         for (int i = 0; i < reversedArr.length; i++) {
@@ -253,7 +253,7 @@ public class Main {
                         }
 
                         int x20 = getIntegerInput(scanner, "Введите число для поиска: ");
-                        int[] indices = findAll(arr20, x20);
+                        int[] indices = m.findAll(arr20, x20);
                         if (indices.length == 0) {
                             System.out.println("Число " + x20 + " не найдено в массиве.");
                         } else {
@@ -318,42 +318,42 @@ public class Main {
         return number;
     }
 
-    public static double fraction(double x) {
+    public  double fraction(double x) {
         return x - (int) x;
     }
 
-    public static int charToNum(char x) {
+    public  int charToNum(char x) {
         return x - '0';
     }
 
-    public static boolean is2Digits(int x) {
+    public  boolean is2Digits(int x) {
         return (x >= 10 && x <= 99) || (x <= -10 && x >= -99);
     }
 
-    public static boolean isInRange(int a, int b, int num) {
+    public  boolean isInRange(int a, int b, int num) {
         int lowerBound = Math.min(a, b);
         int upperBound = Math.max(a, b);
         return num >= lowerBound && num <= upperBound;
     }
 
-    public static boolean isEqual(int a, int b, int c) {
+    public  boolean isEqual(int a, int b, int c) {
         return (a == b) && (b == c);
     }
 
-    public static int absoluteValue(int x) {
+    public  int absoluteValue(int x) {
         return (x < 0) ? -x : x;
     }
 
-    public static boolean is35(int x) {
+    public  boolean is35(int x) {
         return (x % 3 == 0 || x % 5 == 0) && !(x % 3 == 0 && x % 5 == 0);
     }
 
-    public static int max3(int x, int y, int z) {
+    public  int max3(int x, int y, int z) {
         int max = (x > y) ? x : y; // Находим максимум между x и y
         return (max > z) ? max : z; // Сравниваем найденный максимум с z и возвращаем наибольшее значение
     }
 
-    public static int sum2(int x, int y) {
+    public  int sum2(int x, int y) {
         int sum = x + y;
         if (sum >= 10 && sum <= 19) {
             return 20;
@@ -362,7 +362,7 @@ public class Main {
         }
     }
 
-    public static String day(int x) {
+    public  String day(int x) {
         return switch (x) {
             case 1 -> "Понедельник";
             case 2 -> "Вторник";
@@ -375,7 +375,7 @@ public class Main {
         };
     }
 
-    public static String listNums(int x) {
+    public  String listNums(int x) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i <= x; i++) {
             result.append(i).append(" ");
@@ -383,7 +383,7 @@ public class Main {
         return result.toString().trim();
     }
 
-    public static String chet(int x) {
+    public  String chet(int x) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i <= x; i += 2) {
             result.append(i).append(" ");
@@ -391,7 +391,7 @@ public class Main {
         return result.toString().trim(); // Убираем лишний пробел в конце
     }
 
-    public static int numLen(long x) {
+    public  int numLen(long x) {
         int length = 0;
         if (x == 0) {
             return 1;
@@ -403,7 +403,7 @@ public class Main {
         return length;
     }
 
-    public static void square(int x) {
+    public  void square(int x) {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < x; j++) {
                 System.out.print("*");
@@ -412,7 +412,7 @@ public class Main {
         }
     }
 
-    public static void rightTriangle(int x) {
+    public  void rightTriangle(int x) {
         for (int i = 1; i <= x; i++) {
             for (int j = 0; j < x - i; j++) {
                 System.out.print(" ");
@@ -424,7 +424,7 @@ public class Main {
         }
     }
 
-    public static int findFirst(int[] arr, int x) {
+    public  int findFirst(int[] arr, int x) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == x) {
                 return i;
@@ -433,7 +433,7 @@ public class Main {
         return -1;
     }
 
-    public static int maxAbs(int[] arr) {
+    public  int maxAbs(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (Math.abs(arr[i]) > Math.abs(max)) {
@@ -443,7 +443,7 @@ public class Main {
         return max;
     }
 
-    public static int[] add(int[] arr, int[] ins, int pos) {
+    public  int[] add(int[] arr, int[] ins, int pos) {
         int[] result = new int[arr.length + ins.length];
 
         for (int i = 0; i < pos; i++) {
@@ -460,7 +460,7 @@ public class Main {
     }
 
 
-    public static int[] reverseBack(int[] arr) {
+    public  int[] reverseBack(int[] arr) {
         int[] reversed = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             reversed[i] = arr[arr.length - 1 - i];
@@ -468,7 +468,7 @@ public class Main {
         return reversed;
     }
 
-    public static int[] findAll(int[] arr, int x) {
+    public  int[] findAll(int[] arr, int x) {
         int count = 0;
         for (int value : arr) {
             if (value == x) {
